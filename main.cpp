@@ -11,12 +11,12 @@ Date:           14.06.2019
 #include <iostream>
 #include <conio.h>
 
-const char resizeArray = 'r';
-const char listArray = 'l';
-const char setArray = 's';
-const char addValueArray = 'a';
-const char avarageOfArray = 't';
-
+const char RESIZE_ARRAY = 'r';
+const char lIST_ARRAY = 'l';
+const char SET_ARRAY = 's';
+const char CHANGE_VALUE = 'a';
+const char AVARAGE_ARRAY = 't';
+const char INVERSE_ARRAY = 'i';
 
 int main() {
     char key = ' ';
@@ -32,6 +32,7 @@ int main() {
     std::cout << "For Set     : 's' " << std::endl;
     std::cout << "For Summary : 'a' " << std::endl;
     std::cout << "For Avarage : 't' " << std::endl;
+    std::cout << "For Inverse : 'i' " << std::endl;
 
     while(key != 'q') {
         std::cout << "Command > ";
@@ -39,7 +40,7 @@ int main() {
 
         switch (key) {
 
-            case resizeArray:
+            case RESIZE_ARRAY:
                 std::cout << std::endl;
                 std::cout << "Current Array Size: "<<sizeOfNewArray << std::endl;
                 std::cout << "Enter your new array size" << std::endl;
@@ -58,7 +59,7 @@ int main() {
 
                 break;
 
-            case listArray:
+            case lIST_ARRAY:
                 std::cout << std::endl;
                 std::cout << "List Of Array" << std::endl;
                 for (int temp = 0; temp < sizeOfNewArray; ++temp) {
@@ -67,7 +68,7 @@ int main() {
                 }
                 break;
 
-            case setArray:
+            case SET_ARRAY:
                 std::cout << "Which value you want change   ";
                 std::cin >> changeOfSize;
                 std::cout << "Enter the Value  ";
@@ -77,7 +78,7 @@ int main() {
 
                 break;
 
-            case addValueArray:
+            case CHANGE_VALUE:
                 std::cout << std::endl;
                 for (int temp = 0; temp < sizeOfNewArray; ++temp) {
                    total += Array[temp];
@@ -87,7 +88,7 @@ int main() {
                 total=0;
                 break;
 
-            case avarageOfArray:
+            case AVARAGE_ARRAY:
                 std::cout << std::endl;
                 for (int temp = 0; temp < sizeOfNewArray; ++temp) {
                     total += Array[temp];
@@ -95,6 +96,19 @@ int main() {
                 avarage = total / sizeOfNewArray;
                 std::cout << "Avarage:  " << avarage << std::endl;
                 total=0;
+                break;
+
+            case INVERSE_ARRAY:
+                int temporary;
+                for (int temp = 0; temp <sizeOfNewArray/2 ; ++temp) {
+                    temporary = Array [temp];
+                    Array[temp] = Array[sizeOfNewArray-1-temp];
+                    Array[sizeOfNewArray-1-temp] = temporary;
+                }
+
+                for (int temp = 0; temp <sizeOfNewArray ; ++temp) {
+                    std::cout << temp+1 << " Number: "<< Array[temp] << std::endl;
+                }
                 break;
         }
         key = ' ';
